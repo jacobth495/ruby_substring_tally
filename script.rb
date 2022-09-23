@@ -7,7 +7,7 @@ dictionary = ["world","below",
 
 def tally_substring(string, dictionary)
   string = string.downcase.split(" ")
-  def subtract_letter_from_words(string)
+  def subtract_letter_from_end_words(string)
     string.each_with_index do |word, index|
       if word == ''
         next
@@ -18,9 +18,20 @@ def tally_substring(string, dictionary)
       string << word
     end
   end
-  subtract_letter_from_words(string) 
-  common_words = string & dictionary
-  common_words.tally
+  def subtract_letter_from_start_words(string)
+    string.each_with_index do |word, index|
+      if word == ''
+        next
+      end
+      word = word.split('')
+      word.shift
+      word = word.join('')
+      string << word
+    end
+  end
+  subtract_letter_from_end_words(string) 
+  subtract_letter_from_start_words(string)
+  puts string
 end
 
 tally_substring('Hello the world',dictionary)
