@@ -1,0 +1,7 @@
+take string downcase it 
+split into array of words
+check if word is in dictionary 
+if so tally word
+pop last letter from word 
+repeat 3-5
+return tally of common words
