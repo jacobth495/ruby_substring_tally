@@ -31,7 +31,22 @@ def tally_substring(string, dictionary)
   end
   subtract_letter_from_end_words(string) 
   subtract_letter_from_start_words(string)
-  puts string
+  reponse = {}
+  string.map do |word, sum = 0|
+    if dictionary.include?(word) == true
+      reponse[word] = 0
+    end
+  end
+  reponse.map do |key, value|
+    string.each do |word|
+      if key == word
+        value += 1
+        value
+      end
+      reponse[key] = value
+    end
+  end
+  puts reponse
 end
 
-tally_substring('Hello the world',dictionary)
+tally_substring("Howdy partner, sit down! How's it going?",dictionary)
